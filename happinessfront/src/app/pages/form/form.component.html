@@ -1,0 +1,93 @@
+
+<div class="bootstrap-wrapper">
+    <div class="d-grid gap-4">
+    <div class="container">
+        <div class="row">
+            
+                <div class="container text-center">
+<br>
+<form (ngSubmit)="formsubmit()">
+<mat-card >
+    
+    <mat-card-title>I am pleased with the way I approach problems</mat-card-title>
+    <mat-card-content class="mid-width">
+    <select aria-label="Multiple select example" cSelect multiple size="1" sizing="g" [ariaRequired]="true" [(ngModel)]="person.quest1" name="value">
+    <option value=0>Not at ALL</option>
+    <option value=1>Sometimes</option>
+    <option value=2>Strongly Agree</option>
+  </select></mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-title>I am committed and involved</mat-card-title>
+    <mat-card-content>
+        <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color" [ariaRequired]="true" [(ngModel)]="person.quest2" name="quest2">
+            <mat-button-toggle value=0>Not at ALL</mat-button-toggle>
+            <mat-button-toggle value=1>Sometimes</mat-button-toggle>
+            <mat-button-toggle value=2>Strongly Agree</mat-button-toggle>
+        </mat-button-toggle-group>
+ </mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-title>I have a cheerful effect on people</mat-card-title>
+    <mat-card-content>
+        <mat-selection-list #shoes [multiple]="false" [ariaRequired]="true" [(ngModel)]="person.quest3" name="value">
+            <mat-list-option *ngFor="let choice of typesOfChoice" [value]="choice.value" >
+              {{choice.name}}
+            </mat-list-option>
+          </mat-selection-list>
+       
+ </mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-title>I take impulsive decisions</mat-card-title>
+    <mat-card-content>
+        <mat-form-field appearance="fill" [ariaRequired]="true" >
+            <mat-label>Select</mat-label>
+            <mat-select [(ngModel)]="person.quest4" name="value">
+              <mat-option value=0>Not at ALL</mat-option>
+              <mat-option value=1>Maybe</mat-option>
+              <mat-option value=2>Strongly Agree</mat-option>
+            </mat-select>
+          </mat-form-field>
+ </mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-title>I feel lost in a room full of people</mat-card-title>
+    <mat-card-content [ariaRequired]="true"  >
+        <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false" [(ngModel)]="person.quest5" name="rate"></ngb-rating>
+ </mat-card-content>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-title>I am happy in the career that I am in</mat-card-title>
+    <div style="display: flex; justify-content: center; align-items: center;">
+    <mat-card-content [ariaRequired]="true" >
+        
+        <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="person.quest6" name="quest6">
+            <mat-chip-option color="warn" value=2>Yes</mat-chip-option>
+            <mat-chip-option color="primary" value=0>No</mat-chip-option>
+            <mat-chip-option color="accent" value=1>Sometimes</mat-chip-option>
+        </mat-chip-listbox>
+      
+    </mat-card-content>
+</div>
+  
+</mat-card>
+<br>
+<div class="container text-center">
+    <button mat-raised-button color="primary">Submit</button>
+
+</div>
+{{person| json}}
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
